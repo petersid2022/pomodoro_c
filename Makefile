@@ -1,11 +1,9 @@
-# Define the compiler and flags
-CC = cc
-CFLAGS = -Wall -Wextra -pedantic -Wunused-result -Wno-unused-variable
-OPTFLAGS = -O2
-DEBUGFLAGS = -O0
-
-# Define the targets
 .PHONY: all clean
+
+CC = cc
+CFLAGS = -static -pedantic -std=c99 -Wall -Wextra -pedantic -Wunused-result -Wno-unused-variable
+OPTFLAGS = -O3
+DEBUGFLAGS = -O0
 
 all: main main.s
 
