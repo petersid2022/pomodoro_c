@@ -1,17 +1,17 @@
 .PHONY: all clean
 
 CC = cc
-CFLAGS = -static -pedantic -std=c99 -Wall -Wextra -pedantic -Wunused-result -Wno-unused-variable
-OPTFLAGS = -O3
-DEBUGFLAGS = -O0
+CFLAGS = -std=c99 -Wall -Wextra -pedantic -Wunused-result -Wno-unused-variable
+DEBUGFLAGS = -O0 -g -S -s
 
 all: main main.s
+default: main
 
 main: main.c
-	$(CC) $(CFLAGS) $(OPTFLAGS) -o main main.c
+	$(CC) $(CFLAGS) -o main main.c
 
 main.s: main.c
-	$(CC) $(CFLAGS) $(DEBUGFLAGS) -S -o main.s main.c
+	$(CC) $(CFLAGS) $(DEBUGFLAGS) -o main.s main.c
 
 clean:
 	rm -f main main.s
